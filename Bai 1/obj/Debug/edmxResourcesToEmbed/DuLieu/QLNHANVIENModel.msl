@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QLNHANVIENModelStoreContainer" CdmEntityContainer="QLNHANVIENEntities">
+    <EntitySetMapping Name="NHANVIENs">
+      <EntityTypeMapping TypeName="QLNHANVIENModel.NHANVIEN">
+        <MappingFragment StoreEntitySet="NHANVIEN">
+          <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="Luong" ColumnName="Luong" />
+          <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHANCONGs">
+      <EntityTypeMapping TypeName="QLNHANVIENModel.PHANCONG">
+        <MappingFragment StoreEntitySet="PHANCONG">
+          <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+          <ScalarProperty Name="MaViec" ColumnName="MaViec" />
+          <ScalarProperty Name="NgayBatDau" ColumnName="NgayBatDau" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHONGs">
+      <EntityTypeMapping TypeName="QLNHANVIENModel.PHONG">
+        <MappingFragment StoreEntitySet="PHONG">
+          <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
+          <ScalarProperty Name="TenPhong" ColumnName="TenPhong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VIECLAMs">
+      <EntityTypeMapping TypeName="QLNHANVIENModel.VIECLAM">
+        <MappingFragment StoreEntitySet="VIECLAM">
+          <ScalarProperty Name="MaViec" ColumnName="MaViec" />
+          <ScalarProperty Name="TenViec" ColumnName="TenViec" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

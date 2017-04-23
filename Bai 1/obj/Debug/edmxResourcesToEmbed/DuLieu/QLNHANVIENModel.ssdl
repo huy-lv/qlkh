@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLNHANVIENModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="MaNhanVien" />
+    </Key>
+    <Property Name="MaNhanVien" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="NgaySinh" Type="date" Nullable="false" />
+    <Property Name="Luong" Type="int" Nullable="false" />
+    <Property Name="MaPhong" Type="char" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="PHANCONG">
+    <Key>
+      <PropertyRef Name="MaNhanVien" />
+      <PropertyRef Name="MaViec" />
+    </Key>
+    <Property Name="MaNhanVien" Type="int" Nullable="false" />
+    <Property Name="MaViec" Type="int" Nullable="false" />
+    <Property Name="NgayBatDau" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PHONG">
+    <Key>
+      <PropertyRef Name="MaPhong" />
+    </Key>
+    <Property Name="MaPhong" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="TenPhong" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VIECLAM">
+    <Key>
+      <PropertyRef Name="MaViec" />
+    </Key>
+    <Property Name="MaViec" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenViec" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_NHANVIEN_PHONG">
+    <End Role="PHONG" Type="Self.PHONG" Multiplicity="0..1" />
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHONG">
+        <PropertyRef Name="MaPhong" />
+      </Principal>
+      <Dependent Role="NHANVIEN">
+        <PropertyRef Name="MaPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PHANCONG_NHANVIEN">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+    <End Role="PHANCONG" Type="Self.PHANCONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MaNhanVien" />
+      </Principal>
+      <Dependent Role="PHANCONG">
+        <PropertyRef Name="MaNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PHANCONG_VIECLAM">
+    <End Role="VIECLAM" Type="Self.VIECLAM" Multiplicity="1" />
+    <End Role="PHANCONG" Type="Self.PHANCONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VIECLAM">
+        <PropertyRef Name="MaViec" />
+      </Principal>
+      <Dependent Role="PHANCONG">
+        <PropertyRef Name="MaViec" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLNHANVIENModelStoreContainer">
+    <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHANCONG" EntityType="Self.PHANCONG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHONG" EntityType="Self.PHONG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VIECLAM" EntityType="Self.VIECLAM" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_NHANVIEN_PHONG" Association="Self.FK_NHANVIEN_PHONG">
+      <End Role="PHONG" EntitySet="PHONG" />
+      <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHANCONG_NHANVIEN" Association="Self.FK_PHANCONG_NHANVIEN">
+      <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+      <End Role="PHANCONG" EntitySet="PHANCONG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHANCONG_VIECLAM" Association="Self.FK_PHANCONG_VIECLAM">
+      <End Role="VIECLAM" EntitySet="VIECLAM" />
+      <End Role="PHANCONG" EntitySet="PHANCONG" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

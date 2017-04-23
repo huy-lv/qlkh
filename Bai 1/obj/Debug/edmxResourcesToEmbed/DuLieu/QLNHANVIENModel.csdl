@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLNHANVIENModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="MaNhanVien" />
+    </Key>
+    <Property Name="MaNhanVien" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NgaySinh" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Luong" Type="Int32" Nullable="false" />
+    <Property Name="MaPhong" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="PHONG" Relationship="Self.FK_NHANVIEN_PHONG" FromRole="NHANVIEN" ToRole="PHONG" />
+    <NavigationProperty Name="PHANCONGs" Relationship="Self.FK_PHANCONG_NHANVIEN" FromRole="NHANVIEN" ToRole="PHANCONG" />
+  </EntityType>
+  <EntityType Name="PHANCONG">
+    <Key>
+      <PropertyRef Name="MaNhanVien" />
+      <PropertyRef Name="MaViec" />
+    </Key>
+    <Property Name="MaNhanVien" Type="Int32" Nullable="false" />
+    <Property Name="MaViec" Type="Int32" Nullable="false" />
+    <Property Name="NgayBatDau" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="NHANVIEN" Relationship="Self.FK_PHANCONG_NHANVIEN" FromRole="PHANCONG" ToRole="NHANVIEN" />
+    <NavigationProperty Name="VIECLAM" Relationship="Self.FK_PHANCONG_VIECLAM" FromRole="PHANCONG" ToRole="VIECLAM" />
+  </EntityType>
+  <EntityType Name="PHONG">
+    <Key>
+      <PropertyRef Name="MaPhong" />
+    </Key>
+    <Property Name="MaPhong" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TenPhong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="NHANVIENs" Relationship="Self.FK_NHANVIEN_PHONG" FromRole="PHONG" ToRole="NHANVIEN" />
+  </EntityType>
+  <EntityType Name="VIECLAM">
+    <Key>
+      <PropertyRef Name="MaViec" />
+    </Key>
+    <Property Name="MaViec" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenViec" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="PHANCONGs" Relationship="Self.FK_PHANCONG_VIECLAM" FromRole="VIECLAM" ToRole="PHANCONG" />
+  </EntityType>
+  <Association Name="FK_NHANVIEN_PHONG">
+    <End Role="PHONG" Type="Self.PHONG" Multiplicity="0..1" />
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHONG">
+        <PropertyRef Name="MaPhong" />
+      </Principal>
+      <Dependent Role="NHANVIEN">
+        <PropertyRef Name="MaPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PHANCONG_NHANVIEN">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+    <End Role="PHANCONG" Type="Self.PHANCONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MaNhanVien" />
+      </Principal>
+      <Dependent Role="PHANCONG">
+        <PropertyRef Name="MaNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PHANCONG_VIECLAM">
+    <End Role="VIECLAM" Type="Self.VIECLAM" Multiplicity="1" />
+    <End Role="PHANCONG" Type="Self.PHANCONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VIECLAM">
+        <PropertyRef Name="MaViec" />
+      </Principal>
+      <Dependent Role="PHANCONG">
+        <PropertyRef Name="MaViec" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLNHANVIENEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
+    <EntitySet Name="PHANCONGs" EntityType="Self.PHANCONG" />
+    <EntitySet Name="PHONGs" EntityType="Self.PHONG" />
+    <EntitySet Name="VIECLAMs" EntityType="Self.VIECLAM" />
+    <AssociationSet Name="FK_NHANVIEN_PHONG" Association="Self.FK_NHANVIEN_PHONG">
+      <End Role="PHONG" EntitySet="PHONGs" />
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHANCONG_NHANVIEN" Association="Self.FK_PHANCONG_NHANVIEN">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="PHANCONG" EntitySet="PHANCONGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHANCONG_VIECLAM" Association="Self.FK_PHANCONG_VIECLAM">
+      <End Role="VIECLAM" EntitySet="VIECLAMs" />
+      <End Role="PHANCONG" EntitySet="PHANCONGs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,66 @@
+G:\1311519022_NguyenAiTuan\Bai 1\Bai 1\bin\Debug\Bai 1.exe.config
+G:\1311519022_NguyenAiTuan\Bai 1\Bai 1\bin\Debug\Bai 1.exe
+G:\1311519022_NguyenAiTuan\Bai 1\Bai 1\bin\Debug\Bai 1.pdb
+G:\1311519022_NguyenAiTuan\Bai 1\Bai 1\obj\Debug\Bai 1.csprojResolveAssemblyReference.cache
+G:\1311519022_NguyenAiTuan\Bai 1\Bai 1\obj\Debug\Bai_1.Form1.resources
+G:\1311519022_NguyenAiTuan\Bai 1\Bai 1\obj\Debug\Bai_1.Properties.Resources.resources
+G:\1311519022_NguyenAiTuan\Bai 1\Bai 1\obj\Debug\Bai 1.csproj.GenerateResource.Cache
+G:\1311519022_NguyenAiTuan\Bai 1\Bai 1\obj\Debug\Bai 1.exe
+G:\1311519022_NguyenAiTuan\Bai 1\Bai 1\obj\Debug\Bai 1.pdb
+C:\Users\Dell\Downloads\1311519022_NguyenAiTuan\1311519022_NguyenAiTuan\Bai 1\Bai 1\bin\Debug\Bai 1.exe.config
+C:\Users\Dell\Downloads\1311519022_NguyenAiTuan\1311519022_NguyenAiTuan\Bai 1\Bai 1\obj\Debug\Bai 1.exe
+C:\Users\Dell\Downloads\1311519022_NguyenAiTuan\1311519022_NguyenAiTuan\Bai 1\Bai 1\obj\Debug\Bai 1.pdb
+C:\Users\Dell\Downloads\1311519022_NguyenAiTuan\1311519022_NguyenAiTuan\Bai 1\Bai 1\bin\Debug\Bai 1.exe
+C:\Users\Dell\Downloads\1311519022_NguyenAiTuan\1311519022_NguyenAiTuan\Bai 1\Bai 1\bin\Debug\Bai 1.pdb
+C:\Users\Dell\Downloads\1311519022_NguyenAiTuan\1311519022_NguyenAiTuan\Bai 1\Bai 1\obj\Debug\Bai 1.csprojResolveAssemblyReference.cache
+C:\Users\Dell\Downloads\1311519022_NguyenAiTuan\1311519022_NguyenAiTuan\Bai 1\Bai 1\obj\Debug\Bai_1.Form1.resources
+C:\Users\Dell\Downloads\1311519022_NguyenAiTuan\1311519022_NguyenAiTuan\Bai 1\Bai 1\obj\Debug\Bai_1.Properties.Resources.resources
+C:\Users\Dell\Downloads\1311519022_NguyenAiTuan\1311519022_NguyenAiTuan\Bai 1\Bai 1\obj\Debug\Bai 1.csproj.GenerateResource.Cache
+C:\Users\SinhVien\Downloads\Bai 1\Bai 1\Bai 1\bin\Debug\Bai 1.exe.config
+C:\Users\SinhVien\Downloads\Bai 1\Bai 1\Bai 1\obj\Debug\Bai 1.exe
+C:\Users\SinhVien\Downloads\Bai 1\Bai 1\Bai 1\obj\Debug\Bai 1.pdb
+C:\Users\SinhVien\Downloads\Bai 1\Bai 1\Bai 1\bin\Debug\Bai 1.exe
+C:\Users\SinhVien\Downloads\Bai 1\Bai 1\Bai 1\bin\Debug\Bai 1.pdb
+C:\Users\SinhVien\Downloads\Bai 1\Bai 1\Bai 1\obj\Debug\Bai 1.csprojResolveAssemblyReference.cache
+C:\Users\SinhVien\Downloads\Bai 1\Bai 1\Bai 1\obj\Debug\Bai_1.Form1.resources
+C:\Users\SinhVien\Downloads\Bai 1\Bai 1\Bai 1\obj\Debug\Bai_1.Properties.Resources.resources
+C:\Users\SinhVien\Downloads\Bai 1\Bai 1\Bai 1\obj\Debug\Bai 1.csproj.GenerateResource.Cache
+C:\Users\Dell\Downloads\Bai 1\Bai 1\Bai 1\bin\Debug\Bai 1.exe.config
+C:\Users\Dell\Downloads\Bai 1\Bai 1\Bai 1\obj\Debug\Bai 1.exe
+C:\Users\Dell\Downloads\Bai 1\Bai 1\Bai 1\obj\Debug\Bai 1.pdb
+C:\Users\Dell\Downloads\Bai 1\Bai 1\Bai 1\bin\Debug\Bai 1.exe
+C:\Users\Dell\Downloads\Bai 1\Bai 1\Bai 1\bin\Debug\Bai 1.pdb
+C:\Users\Dell\Downloads\Bai 1\Bai 1\Bai 1\obj\Debug\Bai 1.csprojResolveAssemblyReference.cache
+C:\Users\Dell\Downloads\Bai 1\Bai 1\Bai 1\obj\Debug\Bai_1.Form1.resources
+C:\Users\Dell\Downloads\Bai 1\Bai 1\Bai 1\obj\Debug\Bai_1.Properties.Resources.resources
+C:\Users\Dell\Downloads\Bai 1\Bai 1\Bai 1\obj\Debug\Bai 1.csproj.GenerateResource.Cache
+C:\Users\Dell\Downloads\Bai 1\Bai 1\Bai 1\bin\Debug\EntityFramework.dll
+C:\Users\Dell\Downloads\Bai 1\Bai 1\Bai 1\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Dell\Downloads\Bai 1\Bai 1\Bai 1\bin\Debug\EntityFramework.xml
+C:\Users\Dell\Downloads\Bai 1\Bai 1\Bai 1\bin\Debug\EntityFramework.SqlServer.xml
+H:\Bai 1\Bai 1\bin\Debug\Bai 1.exe.config
+H:\Bai 1\Bai 1\obj\Debug\Bai 1.exe
+H:\Bai 1\Bai 1\obj\Debug\Bai 1.pdb
+H:\Bai 1\Bai 1\bin\Debug\Bai 1.exe
+H:\Bai 1\Bai 1\bin\Debug\Bai 1.pdb
+H:\Bai 1\Bai 1\bin\Debug\EntityFramework.dll
+H:\Bai 1\Bai 1\bin\Debug\EntityFramework.SqlServer.dll
+H:\Bai 1\Bai 1\bin\Debug\EntityFramework.xml
+H:\Bai 1\Bai 1\bin\Debug\EntityFramework.SqlServer.xml
+H:\Bai 1\Bai 1\obj\Debug\Bai 1.csprojResolveAssemblyReference.cache
+H:\Bai 1\Bai 1\obj\Debug\Bai_1.Form1.resources
+H:\Bai 1\Bai 1\obj\Debug\Bai_1.Properties.Resources.resources
+H:\Bai 1\Bai 1\obj\Debug\Bai 1.csproj.GenerateResource.Cache
+D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\Bai 1\Bai 1\Bai 1\bin\Debug\Bai 1.exe.config
+D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\Bai 1\Bai 1\Bai 1\obj\Debug\Bai 1.exe
+D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\Bai 1\Bai 1\Bai 1\obj\Debug\Bai 1.pdb
+D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\Bai 1\Bai 1\Bai 1\bin\Debug\Bai 1.exe
+D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\Bai 1\Bai 1\Bai 1\bin\Debug\Bai 1.pdb
+D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\Bai 1\Bai 1\Bai 1\bin\Debug\EntityFramework.dll
+D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\Bai 1\Bai 1\Bai 1\bin\Debug\EntityFramework.SqlServer.dll
+D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\Bai 1\Bai 1\Bai 1\bin\Debug\EntityFramework.xml
+D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\Bai 1\Bai 1\Bai 1\bin\Debug\EntityFramework.SqlServer.xml
+D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\Bai 1\Bai 1\Bai 1\obj\Debug\Bai 1.csprojResolveAssemblyReference.cache
+D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\Bai 1\Bai 1\Bai 1\obj\Debug\Bai_1.Form1.resources
+D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\Bai 1\Bai 1\Bai 1\obj\Debug\Bai_1.Properties.Resources.resources
+D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\Bai 1\Bai 1\Bai 1\obj\Debug\Bai 1.csproj.GenerateResource.Cache
