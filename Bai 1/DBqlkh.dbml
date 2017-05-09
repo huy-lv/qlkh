@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="quanlykh" Class="DBqlkhDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=qlkhserver.database.windows.net;Initial Catalog=quanlykh;Persist Security Info=True;User ID=huylv177" SettingsObjectName="Bai_1.Properties.Settings" SettingsPropertyName="quanlykhConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.DichVu" Member="DichVus">
+    <Type Name="DichVu">
+      <Column Name="MaDV" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenDV" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="LoaiDV" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PhiDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Uudai" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Thongtinchitiet" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NhanVien" Member="NhanViens">
+    <Type Name="NhanVien">
+      <Column Name="MaNV" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Hoten" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="ChucVu" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GiaoDich" Member="GiaoDiches">
+    <Type Name="GiaoDich">
+      <Column Name="MaGD" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaKH" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaNV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="TenKH" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="SoTK" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="TenNN" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="SoTKN" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="NgayGD" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Phatsinhno" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Phatsingco" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HopDong" Member="HopDongs">
+    <Type Name="HopDong">
+      <Column Name="MaHD" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaKH" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaNV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="TenKH" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="NguoiDD" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="GiaTri" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="NgayKy" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KhachHang" Member="KhachHangs">
+    <Type Name="KhachHang">
+      <Column Name="MaKH" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenKH" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="LoaiKH" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LinhvucKD" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="NguoiDD" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="SoTK" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Sodu" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="LoaiTien" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Fax" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaSoThue" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Website" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LoaiDichVu" Member="LoaiDichVus">
+    <Type Name="LoaiDichVu">
+      <Column Name="LoaiDV" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Dacdiem" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Chinhsach" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LoaiKachHang" Member="LoaiKachHangs">
+    <Type Name="LoaiKachHang">
+      <Column Name="LoaiKH" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Dacdiem" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Chinhsach" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.NhanVien_selectall" Method="NhanVien_selectall">
+    <ElementType Name="NhanVien_selectallResult">
+      <Column Name="MaNV" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Hoten" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="ChucVu" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.DichVu_selectall" Method="DichVu_selectall">
+    <ElementType Name="DichVu_selectallResult">
+      <Column Name="MaDV" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="TenDV" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="LoaiDV" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PhiDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Uudai" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Thongtinchitiet" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

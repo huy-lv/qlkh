@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Bai_1
+namespace QlkhNamespace
 {
     public partial class LoginForm : Form
     {

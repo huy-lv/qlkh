@@ -9,147 +9,138 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
-using Bai_1.DuLieu;
-namespace Bai_1
+
+namespace QlkhNamespace
 {
     public partial class MainForm : Form
     {
-        QuanLyKhachHangEntities db = new QuanLyKhachHangEntities();
-        KhachHang currentKH;
 
-
+        DBqlkhDataContext db = new DBqlkhDataContext();
         public MainForm()
         {
             InitializeComponent();
 
-            //List<KhachHang> dsKhachHang = db.KhachHangs.ToList();
-            //HienThiDuLieuKH(dsKhachHang);
-
             //List<GiaoDich> dsGD  = db.GiaoDiches.ToList();
-            //HienThiDuLieuGD(dsGD);
+            //HienThiDuLieuGD();
+            loadNhanVien();
 
             this.Text = "Quản lý khách hàng";
         }
-        void HienThiDuLieuKH(List<KhachHang> dsKhachHang)
+        void HienThiDuLieuGD()
         {
-            lvDsKhachHang.Items.Clear();
-            foreach (KhachHang kh in dsKhachHang)
-            {
-                ListViewItem item = new ListViewItem(kh.MaKH.ToString());
-                item.SubItems.Add(kh.TenKH);
-                item.SubItems.Add(kh.LoaiKH);
-                item.SubItems.Add(kh.LinhVucKinhDoanh);
-                item.SubItems.Add(kh.NguoiDaiDien);
-                item.SubItems.Add(kh.DiaChi);
-                item.SubItems.Add(kh.SDT.ToString());
-                item.SubItems.Add(kh.Fax.ToString());
-                item.SubItems.Add(kh.Website);
-                item.SubItems.Add(kh.SoTaiKhoan);
-                item.SubItems.Add(kh.SoDuKhaDung.ToString());
-                item.SubItems.Add(kh.LoaiTien);
-                item.SubItems.Add(kh.MaSoThue);
-                lvDsKhachHang.Items.Add(item);
-            }
-        }
-        void HienThiDuLieuGD(List<GiaoDich> dsgd)
-        {
-            lvDSGD.Items.Clear();
-            foreach (GiaoDich gd in dsgd)
-            {
-                ListViewItem item = new ListViewItem(gd.MaGD.ToString());
-                item.SubItems.Add(gd.MaKH.ToString());
-                item.SubItems.Add(gd.MaNV.ToString());
-                item.SubItems.Add(gd.NoiDung);
-                item.SubItems.Add(gd.NgayGD.ToString());
-                item.SubItems.Add(gd.PhatSinhNo.ToString());
-                item.SubItems.Add(gd.PhatSinhCo.ToString());
-                item.SubItems.Add(gd.TenNguoiNhan);
-                lvDSGD.Items.Add(item);
-            }
+            dgvNhanVien.BeginInvoke(new MethodInvoker(loadNhanVien));
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
+        void loadNhanVien()
         {
-            try
-            {
-                KhachHang kh = new KhachHang()
-                {
-                    TenKH = tbTenKH.Text,
-                    LoaiKH = tbLoaiKH.Text,
-                    LinhVucKinhDoanh = tbLinhVuc.Text,
-                    NguoiDaiDien = tbNguoiDaiDien.Text,
-                    DiaChi = tbDiaChi.Text,
-                    SDT = Int32.Parse(tbSdt.Text),
-                    Fax = Int32.Parse(tbFax.Text),
-                    Website = tbWebsite.Text,
-                    SoTaiKhoan = tbSoTaiKhoan.Text,
-                    SoDuKhaDung = Int32.Parse(tbNguoiDaiDien.Text),
-                    LoaiTien = tbLoaiTien.Text,
-                    MaSoThue = tbMaSoThue.Text
-                };
-                db.KhachHangs.Add(kh);
-                db.SaveChanges();       // Lưu xuống CSDL
-                MessageBox.Show("Thêm thành công");
-                ListViewItem itemNew = new ListViewItem(kh.MaKH.ToString());
-                itemNew.SubItems.Add(kh.TenKH);
-                itemNew.SubItems.Add(kh.LoaiKH);
-                itemNew.SubItems.Add(kh.LinhVucKinhDoanh);
-                itemNew.SubItems.Add(kh.NguoiDaiDien);
-                itemNew.SubItems.Add(kh.DiaChi);
-                itemNew.SubItems.Add(kh.SDT.ToString());
-                itemNew.SubItems.Add(kh.Fax.ToString());
-                itemNew.SubItems.Add(kh.Website);
-                itemNew.SubItems.Add(kh.SoTaiKhoan);
-                itemNew.SubItems.Add(kh.SoDuKhaDung.ToString());
-                itemNew.SubItems.Add(kh.LoaiTien);
-                itemNew.SubItems.Add(kh.MaSoThue);
-                lvDsKhachHang.Items.Add(itemNew);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Thêm thất bại. Chi tiết lỗi: " + ex.Message);
-            }
+            dgvNhanVien.DataSource = db.NhanVien_selectall();
+            nv_manv_lb.DataBindings.Clear();
+            nv_manv_lb.DataBindings.Add("text", dgvNhanVien.DataSource, "manv");
+            nv_tennv_tb.DataBindings.Clear();
+            nv_tennv_tb.DataBindings.Add("text", dgvNhanVien.DataSource, "hoten");
+            //tbMaPhong.DataBindings.Clear();
+            //tbMaPhong.DataBindings.Add("text", dgvSinhVien.DataSource, "maphong");
+            //tbHoKhau.DataBindings.Clear();
+            //tbHoKhau.DataBindings.Add("text", dgvSinhVien.DataSource, "hokhau");
+            //tbGioiTinh.DataBindings.Clear();
+            //tbGioiTinh.DataBindings.Add("text", dgvSinhVien.DataSource, "gioitinh");
+            //tbNgaySinh.DataBindings.Clear();
+            //tbNgaySinh.DataBindings.Add("text", dgvSinhVien.DataSource, "ngaysinh");
+            //tbNgayDK.DataBindings.Clear();
+            //tbNgayDK.DataBindings.Add("text", dgvSinhVien.DataSource, "ngaydangky");
+            //tbTrangThai.DataBindings.Clear();
+            //tbTrangThai.DataBindings.Add("text", dgvSinhVien.DataSource, "trangthai");
+            //tbSdt.DataBindings.Clear();
+            //tbSdt.DataBindings.Add("text", dgvSinhVien.DataSource, "sdt");
+            //tbThoiGianHoc.DataBindings.Clear();
+            //tbThoiGianHoc.DataBindings.Add("text", dgvSinhVien.DataSource, "thoigianhoc");
+            //tbLop.DataBindings.Clear();
+            //tbLop.DataBindings.Add("text", dgvSinhVien.DataSource, "lop");
+
         }
 
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
+        //private void btnThem_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        KhachHang kh = new KhachHang()
+        //        {
+        //            TenKH = tbTenKH.Text,
+        //            LoaiKH = tbLoaiKH.Text,
+        //            LinhVucKinhDoanh = tbLinhVuc.Text,
+        //            NguoiDaiDien = tbNguoiDaiDien.Text,
+        //            DiaChi = tbDiaChi.Text,
+        //            SDT = Int32.Parse(tbSdt.Text),
+        //            Fax = Int32.Parse(tbFax.Text),
+        //            Website = tbWebsite.Text,
+        //            SoTaiKhoan = tbSoTaiKhoan.Text,
+        //            SoDuKhaDung = Int32.Parse(tbNguoiDaiDien.Text),
+        //            LoaiTien = tbLoaiTien.Text,
+        //            MaSoThue = tbMaSoThue.Text
+        //        };
+        //        db.KhachHangs.Add(kh);
+        //        db.SaveChanges();       // Lưu xuống CSDL
+        //        MessageBox.Show("Thêm thành công");
+        //        ListViewItem itemNew = new ListViewItem(kh.MaKH.ToString());
+        //        itemNew.SubItems.Add(kh.TenKH);
+        //        itemNew.SubItems.Add(kh.LoaiKH);
+        //        itemNew.SubItems.Add(kh.LinhVucKinhDoanh);
+        //        itemNew.SubItems.Add(kh.NguoiDaiDien);
+        //        itemNew.SubItems.Add(kh.DiaChi);
+        //        itemNew.SubItems.Add(kh.SDT.ToString());
+        //        itemNew.SubItems.Add(kh.Fax.ToString());
+        //        itemNew.SubItems.Add(kh.Website);
+        //        itemNew.SubItems.Add(kh.SoTaiKhoan);
+        //        itemNew.SubItems.Add(kh.SoDuKhaDung.ToString());
+        //        itemNew.SubItems.Add(kh.LoaiTien);
+        //        itemNew.SubItems.Add(kh.MaSoThue);
+        //        lvDsKhachHang.Items.Add(itemNew);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Thêm thất bại. Chi tiết lỗi: " + ex.Message);
+        //    }
+        //}
 
-            //KhachHang KhachHang = db.KhachHangs.Find(int.Parse(lblMaKhachHang.Text));
-            int MaKhachHang = int.Parse(lbMaKH.Text);
-            KhachHang KhachHang = db.KhachHangs.SingleOrDefault(m => m.MaKH == MaKhachHang);
-            if (KhachHang != null)
-            {
-                db.KhachHangs.Remove(KhachHang);
-                db.SaveChanges();
-                MessageBox.Show("Xóa thành công");
-                Form1_Load(sender, e);
-            }
-            else
-            {
-                MessageBox.Show("Nhân viên không còn tồn tại!");
-            }
-        }
+        //private void btnXoa_Click(object sender, EventArgs e)
+        //{
 
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            int MaKhachHang = int.Parse(lbMaKH.Text);
-            KhachHang khachHang = db.KhachHangs.SingleOrDefault(m => m.MaKH == MaKhachHang);
-            khachHang.TenKH = tbTenKH.Text;
-            khachHang.LoaiKH = tbLoaiKH.Text;
-            khachHang.LinhVucKinhDoanh = tbLinhVuc.Text;
-            khachHang.NguoiDaiDien = tbNguoiDaiDien.Text;
-            khachHang.DiaChi = tbDiaChi.Text;
-            khachHang.SDT = Int32.Parse(tbSdt.Text);
-            khachHang.Fax = Int32.Parse(tbFax.Text);
-            khachHang.Website = tbWebsite.Text;
-            khachHang.SoTaiKhoan = tbSoTaiKhoan.Text;
-            khachHang.SoDuKhaDung = Int32.Parse(tbNguoiDaiDien.Text);
-            khachHang.LoaiTien = tbLoaiTien.Text;
-            khachHang.MaSoThue = tbMaSoThue.Text;
-            db.SaveChanges();
-            MessageBox.Show("Sửa thành công");
-            Form1_Load(sender, e);
-        }
+        //    //KhachHang KhachHang = db.KhachHangs.Find(int.Parse(lblMaKhachHang.Text));
+        //    int MaKhachHang = int.Parse(lbMaKH.Text);
+        //    KhachHang KhachHang = db.KhachHangs.SingleOrDefault(m => m.MaKH == MaKhachHang);
+        //    if (KhachHang != null)
+        //    {
+        //        db.KhachHangs.Remove(KhachHang);
+        //        db.SaveChanges();
+        //        MessageBox.Show("Xóa thành công");
+        //        Form1_Load(sender, e);
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Nhân viên không còn tồn tại!");
+        //    }
+        //}
+
+        //private void btnSua_Click(object sender, EventArgs e)
+        //{
+        //    int MaKhachHang = int.Parse(lbMaKH.Text);
+        //    KhachHang khachHang = db.KhachHangs.SingleOrDefault(m => m.MaKH == MaKhachHang);
+        //    khachHang.TenKH = tbTenKH.Text;
+        //    khachHang.LoaiKH = tbLoaiKH.Text;
+        //    khachHang.LinhVucKinhDoanh = tbLinhVuc.Text;
+        //    khachHang.NguoiDaiDien = tbNguoiDaiDien.Text;
+        //    khachHang.DiaChi = tbDiaChi.Text;
+        //    khachHang.SDT = Int32.Parse(tbSdt.Text);
+        //    khachHang.Fax = Int32.Parse(tbFax.Text);
+        //    khachHang.Website = tbWebsite.Text;
+        //    khachHang.SoTaiKhoan = tbSoTaiKhoan.Text;
+        //    khachHang.SoDuKhaDung = Int32.Parse(tbNguoiDaiDien.Text);
+        //    khachHang.LoaiTien = tbLoaiTien.Text;
+        //    khachHang.MaSoThue = tbMaSoThue.Text;
+        //    db.SaveChanges();
+        //    MessageBox.Show("Sửa thành công");
+        //    Form1_Load(sender, e);
+        //}
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
@@ -159,17 +150,17 @@ namespace Bai_1
         {
         }
 
-        private void txtHotentim_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            string tukhoa = txtHotentim.Text;
-            if (tukhoa == "")
-            {
-                HienThiDuLieuKH(db.KhachHangs.ToList());
-                return;
-            }
-            List<KhachHang> ketquatim = db.KhachHangs.Where(m => m.TenKH.ToUpper().Contains(tukhoa.ToUpper())).ToList();
-            HienThiDuLieuKH(ketquatim);
-        }
+        //private void txtHotentim_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    string tukhoa = txtHotentim.Text;
+        //    if (tukhoa == "")
+        //    {
+        //        HienThiDuLieuKH(db.KhachHangs.ToList());
+        //        return;
+        //    }
+        //    List<KhachHang> ketquatim = db.KhachHangs.Where(m => m.TenKH.ToUpper().Contains(tukhoa.ToUpper())).ToList();
+        //    HienThiDuLieuKH(ketquatim);
+        //}
 
         private void lvDsKhachHang_SelectedIndexChanged_1(object sender, EventArgs e)
         {

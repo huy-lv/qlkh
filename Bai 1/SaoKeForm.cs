@@ -1,5 +1,4 @@
-﻿using Bai_1.DuLieu;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,14 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Bai_1
+namespace QlkhNamespace
 {
     public partial class SaoKeForm : Form
     {
-        public KhachHang kh;
-        QuanLyKhachHangEntities db = new QuanLyKhachHangEntities();
-
-
         public SaoKeForm()
         {
             InitializeComponent();

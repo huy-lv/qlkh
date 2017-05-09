@@ -1,4 +1,4 @@
-﻿namespace Bai_1
+﻿namespace QlkhNamespace
 {
     partial class LoginForm
     {

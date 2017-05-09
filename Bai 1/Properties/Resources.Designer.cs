@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Bai_1.Properties
+namespace QlkhNamespace.Properties
 {
 
 

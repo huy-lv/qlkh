@@ -13,3 +13,18 @@ D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\Bai 1\Bai 1\Bai 1\obj\Debug\Qua
 D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\Bai 1\Bai 1\Bai 1\obj\Debug\Bai 1.exe
 D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\Bai 1\Bai 1\Bai 1\obj\Debug\Bai 1.pdb
 D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\Bai 1\Bai 1\Bai 1\obj\Debug\QuanLyKhachHang.csprojResolveAssemblyReference.cache
+D:\vs\project\qlkh\Bai 1\bin\Debug\Bai 1.exe.config
+D:\vs\project\qlkh\Bai 1\bin\Debug\Bai 1.exe
+D:\vs\project\qlkh\Bai 1\bin\Debug\Bai 1.pdb
+D:\vs\project\qlkh\Bai 1\bin\Debug\EntityFramework.dll
+D:\vs\project\qlkh\Bai 1\bin\Debug\EntityFramework.SqlServer.dll
+D:\vs\project\qlkh\Bai 1\bin\Debug\EntityFramework.xml
+D:\vs\project\qlkh\Bai 1\bin\Debug\EntityFramework.SqlServer.xml
+D:\vs\project\qlkh\Bai 1\obj\Debug\QuanLyKhachHang.csprojResolveAssemblyReference.cache
+D:\vs\project\qlkh\Bai 1\obj\Debug\Bai_1.Properties.Resources.resources
+D:\vs\project\qlkh\Bai 1\obj\Debug\QuanLyKhachHang.csproj.GenerateResource.Cache
+D:\vs\project\qlkh\Bai 1\obj\Debug\Bai 1.exe
+D:\vs\project\qlkh\Bai 1\obj\Debug\Bai 1.pdb
+D:\vs\project\qlkh\Bai 1\obj\Debug\QlkhNamespace.MainForm.resources
+D:\vs\project\qlkh\Bai 1\obj\Debug\QlkhNamespace.LoginForm.resources
+D:\vs\project\qlkh\Bai 1\obj\Debug\QlkhNamespace.SaoKeForm.resources
