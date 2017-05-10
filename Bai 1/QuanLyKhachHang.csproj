@@ -56,6 +56,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBqlkh.cs">
+      <DependentUpon>DBqlkh.dbml</DependentUpon>
+    </Compile>
     <Compile Include="DBqlkh.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

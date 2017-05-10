@@ -10,74 +10,95 @@ using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
 using Bai_1;
+using System.Data.SqlClient;
+using System.Data.Linq.Mapping;
 
 namespace QlkhNamespace
 {
     public partial class MainForm : Form
     {
-
+        List<TextBox> nddTextBoxList;
         DBqlkhDataContext db = new DBqlkhDataContext();
+        private List<TextBox> khTextBoxList;
+        private List<TextBox> gdTextBoxList;
+
         public MainForm()
         {
             InitializeComponent();
             this.Text = "Quản lý khách hàng";
-
-            loadKhachHang();
-            loadNhanVien();
+            try
+            {
+                loadKhachHang();
+                loadNhanVien();
+                loadNguoiDaiDien();
+                loadGiaoDich();
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
+
+        void loadGiaoDich()
+        {
+            dgvGiaoDich.DataSource = db.GiaoDich_selectall();
+            gdTextBoxList = new List<TextBox>();
+            gdTextBoxList.Add(gd_tb1);
+            gdTextBoxList.Add(gd_tb2);
+            gdTextBoxList.Add(gd_tb3);
+            gdTextBoxList.Add(gd_tb4);
+            gdTextBoxList.Add(gd_tb5);
+            gdTextBoxList.Add(gd_tb6);
+            gdTextBoxList.Add(gd_tb7);
+            gdTextBoxList.Add(gd_tb8);
+            gdTextBoxList.Add(gd_tb9);
+            gdTextBoxList.Add(gd_tb10);
+            bindingDataBy(typeof(GiaoDich), gdTextBoxList, dgvGiaoDich);
+        }
+
+        void loadNguoiDaiDien()
+        {
+            nddTextBoxList = new List<TextBox>();
+            nddTextBoxList.Add(ndd_tb1);
+            nddTextBoxList.Add(ndd_tb2);
+            nddTextBoxList.Add(ndd_tb3);
+        }
+
         void loadKhachHang()
         {
             dgvKhachHang.DataSource = db.KhachHang_selectall();
-            kh_makh.DataBindings.Clear();
-            kh_makh.DataBindings.Add("text", dgvKhachHang.DataSource, "makh");
-            kh_tenkh.DataBindings.Clear();
-            kh_tenkh.DataBindings.Add("text", dgvKhachHang.DataSource, "tenkh");
-            kh_loaikh.DataBindings.Clear();
-            kh_loaikh.DataBindings.Add("text", dgvKhachHang.DataSource, "loaikh");
-            kh_linhvuckd.DataBindings.Clear();
-            kh_linhvuckd.DataBindings.Add("text", dgvKhachHang.DataSource, "linhvuckd");
-            kh_nguoidd.DataBindings.Clear();
-            kh_nguoidd.DataBindings.Add("text", dgvKhachHang.DataSource, "nguoidd");
-            kh_sotk.DataBindings.Clear();
-            kh_sotk.DataBindings.Add("text", dgvKhachHang.DataSource, "sotk");
-            kh_sodu.DataBindings.Clear();
-            kh_sodu.DataBindings.Add("text", dgvKhachHang.DataSource, "sodu");
-            kh_loaitien.DataBindings.Clear();
-            kh_loaitien.DataBindings.Add("text", dgvKhachHang.DataSource, "loaitien");
-            kh_sdt.DataBindings.Clear();
-            kh_sdt.DataBindings.Add("text", dgvKhachHang.DataSource, "sdt");
-            kh_masothue.DataBindings.Clear();
-            kh_masothue.DataBindings.Add("text", dgvKhachHang.DataSource, "masothue");
-            kh_diachi.DataBindings.Clear();
-            kh_diachi.DataBindings.Add("text", dgvKhachHang.DataSource, "diachi");
-            kh_website.DataBindings.Clear();
-            kh_website.DataBindings.Add("text", dgvKhachHang.DataSource, "website");
+            khTextBoxList = new List<TextBox>();
+            khTextBoxList.Add(kh_tb1);
+            khTextBoxList.Add(kh_tb2);
+            khTextBoxList.Add(kh_tb3);
+            khTextBoxList.Add(kh_tb4);
+            khTextBoxList.Add(kh_tb5);
+            khTextBoxList.Add(kh_tb6);
+            khTextBoxList.Add(kh_tb7);
+            khTextBoxList.Add(kh_tb8);
+            khTextBoxList.Add(kh_tb9);
+            khTextBoxList.Add(kh_tb10);
+            khTextBoxList.Add(kh_tb11);
+            khTextBoxList.Add(kh_tb12);
+
+            bindingDataBy(typeof(KhachHang), khTextBoxList, dgvKhachHang);
+        }
+
+        void bindingDataBy(Type tableName, List<TextBox> tbList, DataGridView dgv)
+        {
+            var columnNames = db.Mapping.MappingSource
+                      .GetModel(typeof(DBqlkhDataContext))
+                      .GetMetaType(tableName)
+                      .DataMembers;
+            for (int i = 0; i < tbList.Count; i++)
+            {
+                tbList[i].DataBindings.Clear();
+                tbList[i].DataBindings.Add("text", dgv.DataSource, columnNames[i].Name);
+            }
         }
         void loadNhanVien()
         {
             dgvNhanVien.DataSource = db.NhanVien_selectall();
-            nv_manv_lb.DataBindings.Clear();
-            nv_manv_lb.DataBindings.Add("text", dgvNhanVien.DataSource, "manv");
-            nv_tennv_tb.DataBindings.Clear();
-            nv_tennv_tb.DataBindings.Add("text", dgvNhanVien.DataSource, "hoten");
-            //tbMaPhong.DataBindings.Clear();
-            //tbMaPhong.DataBindings.Add("text", dgvSinhVien.DataSource, "maphong");
-            //tbHoKhau.DataBindings.Clear();
-            //tbHoKhau.DataBindings.Add("text", dgvSinhVien.DataSource, "hokhau");
-            //tbGioiTinh.DataBindings.Clear();
-            //tbGioiTinh.DataBindings.Add("text", dgvSinhVien.DataSource, "gioitinh");
-            //tbNgaySinh.DataBindings.Clear();
-            //tbNgaySinh.DataBindings.Add("text", dgvSinhVien.DataSource, "ngaysinh");
-            //tbNgayDK.DataBindings.Clear();
-            //tbNgayDK.DataBindings.Add("text", dgvSinhVien.DataSource, "ngaydangky");
-            //tbTrangThai.DataBindings.Clear();
-            //tbTrangThai.DataBindings.Add("text", dgvSinhVien.DataSource, "trangthai");
-            //tbSdt.DataBindings.Clear();
-            //tbSdt.DataBindings.Add("text", dgvSinhVien.DataSource, "sdt");
-            //tbThoiGianHoc.DataBindings.Clear();
-            //tbThoiGianHoc.DataBindings.Add("text", dgvSinhVien.DataSource, "thoigianhoc");
-            //tbLop.DataBindings.Clear();
-            //tbLop.DataBindings.Add("text", dgvSinhVien.DataSource, "lop");
 
         }
 
@@ -206,7 +227,7 @@ namespace QlkhNamespace
             //}
         }
 
-        private void lvdsgd_SelectedIndexChanged(object sender,EventArgs e)
+        private void lvdsgd_SelectedIndexChanged(object sender, EventArgs e)
         {
             //if (lvDSGD.SelectedItems.Count > 0)
             //{
@@ -232,7 +253,7 @@ namespace QlkhNamespace
         {
             //if (currentKH != null)
             //{
-                
+
             //} else {
             //    MessageBox.Show("Bạn chưa chọn khách hàng!");
             //}

@@ -48,9 +48,9 @@ namespace Bai_1
     partial void InsertLoaiDichVu(LoaiDichVu instance);
     partial void UpdateLoaiDichVu(LoaiDichVu instance);
     partial void DeleteLoaiDichVu(LoaiDichVu instance);
-    partial void InsertLoaiKachHang(LoaiKachHang instance);
-    partial void UpdateLoaiKachHang(LoaiKachHang instance);
-    partial void DeleteLoaiKachHang(LoaiKachHang instance);
+    partial void InsertLoaiKhachHang(LoaiKhachHang instance);
+    partial void UpdateLoaiKhachHang(LoaiKhachHang instance);
+    partial void DeleteLoaiKhachHang(LoaiKhachHang instance);
     #endregion
 		
 		public DBqlkhDataContext() : 
@@ -131,11 +131,11 @@ namespace Bai_1
 			}
 		}
 		
-		public System.Data.Linq.Table<LoaiKachHang> LoaiKachHangs
+		public System.Data.Linq.Table<LoaiKhachHang> LoaiKhachHangs
 		{
 			get
 			{
-				return this.GetTable<LoaiKachHang>();
+				return this.GetTable<LoaiKhachHang>();
 			}
 		}
 		
@@ -205,7 +205,9 @@ namespace Bai_1
 		
 		private string _Uudai;
 		
-		private string _Thongtinchitiet;
+		private string _Thoigian;
+		
+		private string _Doituong;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -221,8 +223,10 @@ namespace Bai_1
     partial void OnPhiDVChanged();
     partial void OnUudaiChanging(string value);
     partial void OnUudaiChanged();
-    partial void OnThongtinchitietChanging(string value);
-    partial void OnThongtinchitietChanged();
+    partial void OnThoigianChanging(string value);
+    partial void OnThoigianChanged();
+    partial void OnDoituongChanging(string value);
+    partial void OnDoituongChanged();
     #endregion
 		
 		public DichVu()
@@ -330,22 +334,42 @@ namespace Bai_1
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Thongtinchitiet", DbType="NVarChar(500)")]
-		public string Thongtinchitiet
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Thoigian", DbType="NVarChar(100)")]
+		public string Thoigian
 		{
 			get
 			{
-				return this._Thongtinchitiet;
+				return this._Thoigian;
 			}
 			set
 			{
-				if ((this._Thongtinchitiet != value))
+				if ((this._Thoigian != value))
 				{
-					this.OnThongtinchitietChanging(value);
+					this.OnThoigianChanging(value);
 					this.SendPropertyChanging();
-					this._Thongtinchitiet = value;
-					this.SendPropertyChanged("Thongtinchitiet");
-					this.OnThongtinchitietChanged();
+					this._Thoigian = value;
+					this.SendPropertyChanged("Thoigian");
+					this.OnThoigianChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Doituong", DbType="NVarChar(500)")]
+		public string Doituong
+		{
+			get
+			{
+				return this._Doituong;
+			}
+			set
+			{
+				if ((this._Doituong != value))
+				{
+					this.OnDoituongChanging(value);
+					this.SendPropertyChanging();
+					this._Doituong = value;
+					this.SendPropertyChanged("Doituong");
+					this.OnDoituongChanged();
 				}
 			}
 		}
@@ -563,11 +587,9 @@ namespace Bai_1
 		
 		private string _MaKH;
 		
+		private string _MaDV;
+		
 		private string _MaNV;
-		
-		private string _TenKH;
-		
-		private string _SoTK;
 		
 		private string _TenNN;
 		
@@ -577,9 +599,9 @@ namespace Bai_1
 		
 		private System.Nullable<System.DateTime> _NgayGD;
 		
-		private string _Phatsinhno;
+		private string _Sotien;
 		
-		private string _Phatsingco;
+		private string @__PhiDV;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -589,12 +611,10 @@ namespace Bai_1
     partial void OnMaGDChanged();
     partial void OnMaKHChanging(string value);
     partial void OnMaKHChanged();
+    partial void OnMaDVChanging(string value);
+    partial void OnMaDVChanged();
     partial void OnMaNVChanging(string value);
     partial void OnMaNVChanged();
-    partial void OnTenKHChanging(string value);
-    partial void OnTenKHChanged();
-    partial void OnSoTKChanging(string value);
-    partial void OnSoTKChanged();
     partial void OnTenNNChanging(string value);
     partial void OnTenNNChanged();
     partial void OnSoTKNChanging(string value);
@@ -603,10 +623,10 @@ namespace Bai_1
     partial void OnNoiDungChanged();
     partial void OnNgayGDChanging(System.Nullable<System.DateTime> value);
     partial void OnNgayGDChanged();
-    partial void OnPhatsinhnoChanging(string value);
-    partial void OnPhatsinhnoChanged();
-    partial void OnPhatsingcoChanging(string value);
-    partial void OnPhatsingcoChanged();
+    partial void OnSotienChanging(string value);
+    partial void OnSotienChanged();
+    partial void On_PhiDVChanging(string value);
+    partial void On_PhiDVChanged();
     #endregion
 		
 		public GiaoDich()
@@ -654,6 +674,26 @@ namespace Bai_1
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaDV", DbType="VarChar(20)")]
+		public string MaDV
+		{
+			get
+			{
+				return this._MaDV;
+			}
+			set
+			{
+				if ((this._MaDV != value))
+				{
+					this.OnMaDVChanging(value);
+					this.SendPropertyChanging();
+					this._MaDV = value;
+					this.SendPropertyChanged("MaDV");
+					this.OnMaDVChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaNV", DbType="VarChar(20)")]
 		public string MaNV
 		{
@@ -670,46 +710,6 @@ namespace Bai_1
 					this._MaNV = value;
 					this.SendPropertyChanged("MaNV");
 					this.OnMaNVChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenKH", DbType="NVarChar(300)")]
-		public string TenKH
-		{
-			get
-			{
-				return this._TenKH;
-			}
-			set
-			{
-				if ((this._TenKH != value))
-				{
-					this.OnTenKHChanging(value);
-					this.SendPropertyChanging();
-					this._TenKH = value;
-					this.SendPropertyChanged("TenKH");
-					this.OnTenKHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoTK", DbType="VarChar(20)")]
-		public string SoTK
-		{
-			get
-			{
-				return this._SoTK;
-			}
-			set
-			{
-				if ((this._SoTK != value))
-				{
-					this.OnSoTKChanging(value);
-					this.SendPropertyChanging();
-					this._SoTK = value;
-					this.SendPropertyChanged("SoTK");
-					this.OnSoTKChanged();
 				}
 			}
 		}
@@ -794,42 +794,42 @@ namespace Bai_1
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phatsinhno", DbType="VarChar(20)")]
-		public string Phatsinhno
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sotien", DbType="VarChar(20)")]
+		public string Sotien
 		{
 			get
 			{
-				return this._Phatsinhno;
+				return this._Sotien;
 			}
 			set
 			{
-				if ((this._Phatsinhno != value))
+				if ((this._Sotien != value))
 				{
-					this.OnPhatsinhnoChanging(value);
+					this.OnSotienChanging(value);
 					this.SendPropertyChanging();
-					this._Phatsinhno = value;
-					this.SendPropertyChanged("Phatsinhno");
-					this.OnPhatsinhnoChanged();
+					this._Sotien = value;
+					this.SendPropertyChanged("Sotien");
+					this.OnSotienChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phatsingco", DbType="VarChar(20)")]
-		public string Phatsingco
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[ PhiDV]", Storage="__PhiDV", DbType="VarChar(20)")]
+		public string _PhiDV
 		{
 			get
 			{
-				return this._Phatsingco;
+				return this.@__PhiDV;
 			}
 			set
 			{
-				if ((this._Phatsingco != value))
+				if ((this.@__PhiDV != value))
 				{
-					this.OnPhatsingcoChanging(value);
+					this.On_PhiDVChanging(value);
 					this.SendPropertyChanging();
-					this._Phatsingco = value;
-					this.SendPropertyChanged("Phatsingco");
-					this.OnPhatsingcoChanged();
+					this.@__PhiDV = value;
+					this.SendPropertyChanged("_PhiDV");
+					this.On_PhiDVChanged();
 				}
 			}
 		}
@@ -869,13 +869,9 @@ namespace Bai_1
 		
 		private string _MaNV;
 		
-		private string _TenKH;
-		
-		private string _NguoiDD;
-		
 		private string _NoiDung;
 		
-		private string _GiaTri;
+		private string _PhiDV;
 		
 		private System.Nullable<System.DateTime> _NgayKy;
 		
@@ -891,14 +887,10 @@ namespace Bai_1
     partial void OnMaDVChanged();
     partial void OnMaNVChanging(string value);
     partial void OnMaNVChanged();
-    partial void OnTenKHChanging(string value);
-    partial void OnTenKHChanged();
-    partial void OnNguoiDDChanging(string value);
-    partial void OnNguoiDDChanged();
     partial void OnNoiDungChanging(string value);
     partial void OnNoiDungChanged();
-    partial void OnGiaTriChanging(string value);
-    partial void OnGiaTriChanged();
+    partial void OnPhiDVChanging(string value);
+    partial void OnPhiDVChanged();
     partial void OnNgayKyChanging(System.Nullable<System.DateTime> value);
     partial void OnNgayKyChanged();
     #endregion
@@ -988,46 +980,6 @@ namespace Bai_1
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenKH", DbType="NVarChar(300)")]
-		public string TenKH
-		{
-			get
-			{
-				return this._TenKH;
-			}
-			set
-			{
-				if ((this._TenKH != value))
-				{
-					this.OnTenKHChanging(value);
-					this.SendPropertyChanging();
-					this._TenKH = value;
-					this.SendPropertyChanged("TenKH");
-					this.OnTenKHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NguoiDD", DbType="NVarChar(300)")]
-		public string NguoiDD
-		{
-			get
-			{
-				return this._NguoiDD;
-			}
-			set
-			{
-				if ((this._NguoiDD != value))
-				{
-					this.OnNguoiDDChanging(value);
-					this.SendPropertyChanging();
-					this._NguoiDD = value;
-					this.SendPropertyChanged("NguoiDD");
-					this.OnNguoiDDChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoiDung", DbType="NVarChar(500)")]
 		public string NoiDung
 		{
@@ -1048,22 +1000,22 @@ namespace Bai_1
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaTri", DbType="VarChar(20)")]
-		public string GiaTri
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhiDV", DbType="VarChar(20)")]
+		public string PhiDV
 		{
 			get
 			{
-				return this._GiaTri;
+				return this._PhiDV;
 			}
 			set
 			{
-				if ((this._GiaTri != value))
+				if ((this._PhiDV != value))
 				{
-					this.OnGiaTriChanging(value);
+					this.OnPhiDVChanging(value);
 					this.SendPropertyChanging();
-					this._GiaTri = value;
-					this.SendPropertyChanged("GiaTri");
-					this.OnGiaTriChanged();
+					this._PhiDV = value;
+					this.SendPropertyChanged("PhiDV");
+					this.OnPhiDVChanged();
 				}
 			}
 		}
@@ -1133,8 +1085,6 @@ namespace Bai_1
 		
 		private string _SDT;
 		
-		private string _Fax;
-		
 		private string _MaSoThue;
 		
 		private string _DiaChi;
@@ -1163,8 +1113,6 @@ namespace Bai_1
     partial void OnLoaiTienChanged();
     partial void OnSDTChanging(string value);
     partial void OnSDTChanged();
-    partial void OnFaxChanging(string value);
-    partial void OnFaxChanged();
     partial void OnMaSoThueChanging(string value);
     partial void OnMaSoThueChanged();
     partial void OnDiaChiChanging(string value);
@@ -1354,26 +1302,6 @@ namespace Bai_1
 					this._SDT = value;
 					this.SendPropertyChanged("SDT");
 					this.OnSDTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fax", DbType="VarChar(20)")]
-		public string Fax
-		{
-			get
-			{
-				return this._Fax;
-			}
-			set
-			{
-				if ((this._Fax != value))
-				{
-					this.OnFaxChanging(value);
-					this.SendPropertyChanging();
-					this._Fax = value;
-					this.SendPropertyChanged("Fax");
-					this.OnFaxChanged();
 				}
 			}
 		}
@@ -1569,8 +1497,8 @@ namespace Bai_1
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LoaiKachHang")]
-	public partial class LoaiKachHang : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LoaiKhachHang")]
+	public partial class LoaiKhachHang : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -1593,12 +1521,12 @@ namespace Bai_1
     partial void OnChinhsachChanged();
     #endregion
 		
-		public LoaiKachHang()
+		public LoaiKhachHang()
 		{
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoaiKH", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoaiKH", DbType="NVarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string LoaiKH
 		{
 			get
