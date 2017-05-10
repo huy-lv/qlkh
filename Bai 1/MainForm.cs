@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
+using Bai_1;
 
 namespace QlkhNamespace
 {
@@ -19,18 +20,39 @@ namespace QlkhNamespace
         public MainForm()
         {
             InitializeComponent();
-
-            //List<GiaoDich> dsGD  = db.GiaoDiches.ToList();
-            //HienThiDuLieuGD();
-            loadNhanVien();
-
             this.Text = "Quản lý khách hàng";
-        }
-        void HienThiDuLieuGD()
-        {
-            dgvNhanVien.BeginInvoke(new MethodInvoker(loadNhanVien));
-        }
 
+            loadKhachHang();
+            loadNhanVien();
+        }
+        void loadKhachHang()
+        {
+            dgvKhachHang.DataSource = db.KhachHang_selectall();
+            kh_makh.DataBindings.Clear();
+            kh_makh.DataBindings.Add("text", dgvKhachHang.DataSource, "makh");
+            kh_tenkh.DataBindings.Clear();
+            kh_tenkh.DataBindings.Add("text", dgvKhachHang.DataSource, "tenkh");
+            kh_loaikh.DataBindings.Clear();
+            kh_loaikh.DataBindings.Add("text", dgvKhachHang.DataSource, "loaikh");
+            kh_linhvuckd.DataBindings.Clear();
+            kh_linhvuckd.DataBindings.Add("text", dgvKhachHang.DataSource, "linhvuckd");
+            kh_nguoidd.DataBindings.Clear();
+            kh_nguoidd.DataBindings.Add("text", dgvKhachHang.DataSource, "nguoidd");
+            kh_sotk.DataBindings.Clear();
+            kh_sotk.DataBindings.Add("text", dgvKhachHang.DataSource, "sotk");
+            kh_sodu.DataBindings.Clear();
+            kh_sodu.DataBindings.Add("text", dgvKhachHang.DataSource, "sodu");
+            kh_loaitien.DataBindings.Clear();
+            kh_loaitien.DataBindings.Add("text", dgvKhachHang.DataSource, "loaitien");
+            kh_sdt.DataBindings.Clear();
+            kh_sdt.DataBindings.Add("text", dgvKhachHang.DataSource, "sdt");
+            kh_masothue.DataBindings.Clear();
+            kh_masothue.DataBindings.Add("text", dgvKhachHang.DataSource, "masothue");
+            kh_diachi.DataBindings.Clear();
+            kh_diachi.DataBindings.Add("text", dgvKhachHang.DataSource, "diachi");
+            kh_website.DataBindings.Clear();
+            kh_website.DataBindings.Add("text", dgvKhachHang.DataSource, "website");
+        }
         void loadNhanVien()
         {
             dgvNhanVien.DataSource = db.NhanVien_selectall();
@@ -216,16 +238,6 @@ namespace QlkhNamespace
             //}
         }
 
-        private void btInsaoke_Click_1(object sender, EventArgs e)
-        {
-SaoKeForm skf = new SaoKeForm();
-                skf.Show();
-        }
-
-        private void tbPhatSinhCo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 
 }
