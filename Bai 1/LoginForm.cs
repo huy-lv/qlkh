@@ -33,5 +33,10 @@ namespace QlkhNamespace
                 MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác!");
             }
         }
+
+        private void btThoatApp_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

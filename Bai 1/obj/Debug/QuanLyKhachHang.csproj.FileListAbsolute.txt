@@ -40,6 +40,21 @@ D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\Bai 1\bin\Debug\EntityFram
 D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\Bai 1\obj\Debug\QuanLyKhachHang.csprojResolveAssemblyReference.cache
 D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\Bai 1\obj\Debug\QlkhNamespace.MainForm.resources
 D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\Bai 1\obj\Debug\QlkhNamespace.LoginForm.resources
-D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\Bai 1\obj\Debug\Bai_1.Properties.Resources.resources
-D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\Bai 1\obj\Debug\QlkhNamespace.SaoKeForm.resources
 D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\Bai 1\obj\Debug\QuanLyKhachHang.csproj.GenerateResource.Cache
+D:\Onedrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\Bai 1\obj\Debug\QuanLyKhachHang.csprojResolveAssemblyReference.cache
+D:\Onedrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\Bai 1\obj\Debug\QlkhNamespace.MainForm.resources
+D:\Onedrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\Bai 1\obj\Debug\QlkhNamespace.LoginForm.resources
+D:\Onedrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\Bai 1\obj\Debug\QlkhNamespace.Properties.Resources.resources
+D:\Onedrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\Bai 1\obj\Debug\QuanLyKhachHang.csproj.GenerateResource.Cache
+D:\Onedrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\Bai 1\obj\Debug\Bai 1.exe
+D:\Onedrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\Bai 1\obj\Debug\Bai 1.pdb
+D:\Onedrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\Bai 1\bin\Debug\Bai 1.exe.config
+D:\Onedrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\Bai 1\bin\Debug\Bai 1.exe
+D:\Onedrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\Bai 1\bin\Debug\Bai 1.pdb
+D:\Onedrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\Bai 1\bin\Debug\EntityFramework.dll
+D:\Onedrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\Bai 1\bin\Debug\EntityFramework.SqlServer.dll
+D:\Onedrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\Bai 1\bin\Debug\EntityFramework.xml
+D:\Onedrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\Bai 1\bin\Debug\EntityFramework.SqlServer.xml
+D:\Onedrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\Bai 1\obj\Debug\QlkhNamespace.TransactionLog.resources
+D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\Bai 1\obj\Debug\QlkhNamespace.Properties.Resources.resources
+D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\Bai 1\obj\Debug\QlkhNamespace.TransactionLog.resources

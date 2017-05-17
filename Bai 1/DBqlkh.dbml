@@ -1,14 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="quanlykh" Class="DBqlkhDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=qlkhserver.database.windows.net;Initial Catalog=quanlykh;Persist Security Info=True;User ID=huylv177" SettingsObjectName="Bai_1.Properties.Settings" SettingsPropertyName="quanlykhConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.DichVu" Member="DichVus">
-    <Type Name="DichVu">
-      <Column Name="MaDV" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TenDV" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
-      <Column Name="LoaiDV" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="PhiDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="Uudai" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
-      <Column Name="Thoigian" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Doituong" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=qlkhserver.database.windows.net;Initial Catalog=quanlykh;Persist Security Info=True;User ID=huylv177" SettingsObjectName="QlkhNamespace.Properties.Settings" SettingsPropertyName="quanlykhConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Danhgia" Member="Danhgias">
+    <Type Name="Danhgia">
+      <Column Name="MaDG" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaKH" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Ngaydanhgia" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Danhgia" Member="Danhgia1" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Tinhtrangxuly" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.NhanVien" Member="NhanViens">
@@ -19,6 +18,17 @@
       <Column Name="Email" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
       <Column Name="DiaChi" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
       <Column Name="ChucVu" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DichVu" Member="DichVus">
+    <Type Name="DichVu">
+      <Column Name="MaDV" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenDV" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="LoaiDV" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PhiDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Uudai" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Thoigian" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Doituong" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.GiaoDich" Member="GiaoDiches">
@@ -32,7 +42,7 @@
       <Column Name="NoiDung" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="NgayGD" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Sotien" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="[ PhiDV]" Member="_PhiDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PhiDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.HopDong" Member="HopDongs">
@@ -50,9 +60,10 @@
     <Type Name="KhachHang">
       <Column Name="MaKH" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TenKH" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
-      <Column Name="LoaiKH" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MaloaiKH" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Ngaydangky" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="LinhvucKD" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
-      <Column Name="NguoiDD" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="MaNDD" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="SoTK" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="Sodu" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="LoaiTien" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
@@ -71,45 +82,48 @@
   </Table>
   <Table Name="dbo.LoaiKhachHang" Member="LoaiKhachHangs">
     <Type Name="LoaiKhachHang">
-      <Column Name="LoaiKH" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaloaiKH" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenloaiKH" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="Dacdiem" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
       <Column Name="Chinhsach" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
     </Type>
   </Table>
-  <Function Name="dbo.NhanVien_selectall" Method="NhanVien_selectall">
-    <ElementType Name="NhanVien_selectallResult">
-      <Column Name="MaNV" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="Hoten" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+  <Table Name="dbo.NguoiDaiDien" Member="NguoiDaiDiens">
+    <Type Name="NguoiDaiDien">
+      <Column Name="MaNDD" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaKH" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="TenNDD" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Chucvu" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Ngaysinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Gioitinh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="SDT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="Email" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
-      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
-      <Column Name="ChucVu" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.DichVu_selectall" Method="DichVu_selectall">
-    <ElementType Name="DichVu_selectallResult">
+      <Column Name="Diachi" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.DichVu_selectAll" Method="DichVu_selectAll">
+    <ElementType Name="DichVu_selectAllResult">
       <Column Name="MaDV" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="TenDV" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
       <Column Name="LoaiDV" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="PhiDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="Uudai" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
-      <Column Name="Thongtinchitiet" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Thoigian" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Doituong" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.GiaoDich_selectall" Method="GiaoDich_selectall">
-    <ElementType Name="GiaoDich_selectallResult">
+  <Function Name="dbo.GiaoDich_selectAll" Method="GiaoDich_selectAll">
+    <ElementType Name="GiaoDich_selectAllResult">
       <Column Name="MaGD" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="MaKH" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="MaDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="MaNV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="TenKH" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
-      <Column Name="SoTK" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="TenNN" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
       <Column Name="SoTKN" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="NoiDung" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="NgayGD" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Sotien" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="[ PhiDV]" Member="_PhiDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PhiDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.HopDong_selectall" Method="HopDong_selectall">
@@ -118,28 +132,9 @@
       <Column Name="MaKH" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="MaDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="MaNV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="TenKH" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
-      <Column Name="LoaiKH" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="NguoiDD" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
       <Column Name="NoiDung" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="PhiDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="NgayKy" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.KhachHang_selectall" Method="KhachHang_selectall">
-    <ElementType Name="KhachHang_selectallResult">
-      <Column Name="MaKH" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="TenKH" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
-      <Column Name="LoaiKH" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="LinhvucKD" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
-      <Column Name="NguoiDD" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
-      <Column Name="SoTK" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="Sodu" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="LoaiTien" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="SDT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="MaSoThue" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
-      <Column Name="Website" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.LoaiDichVu_selectall" Method="LoaiDichVu_selectall">
@@ -154,6 +149,510 @@
       <Column Name="LoaiKH" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="Dacdiem" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
       <Column Name="Chinhsach" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.NhanVien_selectall" Method="NhanVien_selectall">
+    <ElementType Name="NhanVien_selectallResult">
+      <Column Name="MaNV" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Hoten" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="ChucVu" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.KhachHangSelectById" Method="KhachHangSelectById">
+    <Parameter Name="MaKH" Parameter="maKH" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="KhachHangSelectByIdResult">
+      <Column Name="MaKH" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="TenKH" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="LoaiKH" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Ngaydangky" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="LinhvucKD" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="MaNDD" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="SoTK" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Sodu" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="LoaiTien" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaSoThue" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Website" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GiaoDichSelectByMaKHAndTime" Method="GiaoDichSelectByMaKHAndTime">
+    <Parameter Name="MaKH" Parameter="maKH" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="ngay1" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="ngay2" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="GiaoDichSelectByMaKHAndTimeResult">
+      <Column Name="MaGD" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="MaKH" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaNV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="TenNN" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="SoTKN" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="NgayGD" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Sotien" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PhiDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.NDDDelete" Method="NDDDelete">
+    <Parameter Name="Original_MaNDD" Parameter="original_MaNDD" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.NDDUpdate" Method="NDDUpdate">
+    <Parameter Name="MaNDD" Parameter="maNDD" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="MaKH" Parameter="maKH" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="TenNDD" Parameter="tenNDD" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="Chucvu" Parameter="chucvu" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="Ngaysinh" Parameter="ngaysinh" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Gioitinh" Parameter="gioitinh" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="SDT" Parameter="sDT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="Diachi" Parameter="diachi" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="Original_MaNDD" Parameter="original_MaNDD" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="NDDUpdateResult">
+      <Column Name="MaNDD" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="MaKH" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="TenNDD" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Chucvu" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Ngaysinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Gioitinh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Diachi" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.NDDInsert" Method="NDDInsert">
+    <Parameter Name="MaNDD" Parameter="maNDD" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="MaKH" Parameter="maKH" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="TenNDD" Parameter="tenNDD" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="Chucvu" Parameter="chucvu" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="Ngaysinh" Parameter="ngaysinh" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Gioitinh" Parameter="gioitinh" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="SDT" Parameter="sDT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="Diachi" Parameter="diachi" Type="System.String" DbType="NVarChar(300)" />
+    <ElementType Name="NDDInsertResult">
+      <Column Name="MaNDD" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="MaKH" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="TenNDD" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Chucvu" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Ngaysinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Gioitinh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Diachi" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.NDDSelect" Method="NDDSelect">
+    <ElementType Name="NDDSelectResult">
+      <Column Name="MaNDD" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="MaKH" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="TenNDD" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Chucvu" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Ngaysinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Gioitinh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Diachi" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.DVDelete" Method="DVDelete">
+    <Parameter Name="Original_MaDV" Parameter="original_MaDV" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DVUpdate" Method="DVUpdate">
+    <Parameter Name="MaDV" Parameter="maDV" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="TenDV" Parameter="tenDV" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="LoaiDV" Parameter="loaiDV" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="PhiDV" Parameter="phiDV" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Uudai" Parameter="uudai" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="Thoigian" Parameter="thoigian" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Doituong" Parameter="doituong" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="Original_MaDV" Parameter="original_MaDV" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="DVUpdateResult">
+      <Column Name="MaDV" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="TenDV" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="LoaiDV" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PhiDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Uudai" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Thoigian" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Doituong" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.DVInsert" Method="DVInsert">
+    <Parameter Name="MaDV" Parameter="maDV" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="TenDV" Parameter="tenDV" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="LoaiDV" Parameter="loaiDV" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="PhiDV" Parameter="phiDV" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Uudai" Parameter="uudai" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="Thoigian" Parameter="thoigian" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Doituong" Parameter="doituong" Type="System.String" DbType="NVarChar(500)" />
+    <ElementType Name="DVInsertResult">
+      <Column Name="MaDV" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="TenDV" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="LoaiDV" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PhiDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Uudai" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Thoigian" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Doituong" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.DVSelect" Method="DVSelect">
+    <ElementType Name="DVSelectResult">
+      <Column Name="MaDV" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="TenDV" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="LoaiDV" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PhiDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Uudai" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Thoigian" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Doituong" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GDDelete" Method="GDDelete">
+    <Parameter Name="Original_MaGD" Parameter="original_MaGD" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GDUpdate" Method="GDUpdate">
+    <Parameter Name="MaGD" Parameter="maGD" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="MaKH" Parameter="maKH" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="MaDV" Parameter="maDV" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="MaNV" Parameter="maNV" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="TenNN" Parameter="tenNN" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="SoTKN" Parameter="soTKN" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="NoiDung" Parameter="noiDung" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="NgayGD" Parameter="ngayGD" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Sotien" Parameter="sotien" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="PhiDV" Parameter="phiDV" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Original_MaGD" Parameter="original_MaGD" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="GDUpdateResult">
+      <Column Name="MaGD" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="MaKH" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaNV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="TenNN" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="SoTKN" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="NgayGD" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Sotien" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PhiDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GDInsert" Method="GDInsert">
+    <Parameter Name="MaGD" Parameter="maGD" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="MaKH" Parameter="maKH" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="MaDV" Parameter="maDV" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="MaNV" Parameter="maNV" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="TenNN" Parameter="tenNN" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="SoTKN" Parameter="soTKN" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="NoiDung" Parameter="noiDung" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="NgayGD" Parameter="ngayGD" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Sotien" Parameter="sotien" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="PhiDV" Parameter="phiDV" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="GDInsertResult">
+      <Column Name="MaGD" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="MaKH" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaNV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="TenNN" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="SoTKN" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="NgayGD" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Sotien" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PhiDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GDSelect" Method="GDSelect">
+    <ElementType Name="GDSelectResult">
+      <Column Name="MaGD" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="MaKH" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaNV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="TenNN" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="SoTKN" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="NgayGD" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Sotien" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PhiDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.KhachHangDelete" Method="KhachHangDelete">
+    <Parameter Name="Original_MaKH" Parameter="original_MaKH" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.KhachHangUpdate" Method="KhachHangUpdate">
+    <Parameter Name="MaKH" Parameter="maKH" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="TenKH" Parameter="tenKH" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="MaLoaiKH" Parameter="maLoaiKH" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Ngaydangky" Parameter="ngaydangky" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="LinhvucKD" Parameter="linhvucKD" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="MaNDD" Parameter="maNDD" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="SoTK" Parameter="soTK" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Sodu" Parameter="sodu" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="LoaiTien" Parameter="loaiTien" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="SDT" Parameter="sDT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="MaSoThue" Parameter="maSoThue" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="DiaChi" Parameter="diaChi" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="Website" Parameter="website" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.KhachHangInsert" Method="KhachHangInsert">
+    <Parameter Name="MaKH" Parameter="maKH" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="TenKH" Parameter="tenKH" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="MaLoaiKH" Parameter="maLoaiKH" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Ngaydangky" Parameter="ngaydangky" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="LinhvucKD" Parameter="linhvucKD" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="MaNDD" Parameter="maNDD" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="SoTK" Parameter="soTK" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Sodu" Parameter="sodu" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="LoaiTien" Parameter="loaiTien" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="SDT" Parameter="sDT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="MaSoThue" Parameter="maSoThue" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="DiaChi" Parameter="diaChi" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="Website" Parameter="website" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.KhachHangSelect" Method="KhachHangSelect">
+    <ElementType Name="KhachHangSelectResult">
+      <Column Name="MaKH" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="TenKH" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="MaloaiKH" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Ngaydangky" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="LinhvucKD" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="MaNDD" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="SoTK" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Sodu" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="LoaiTien" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaSoThue" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Website" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.KhachHangSelectById" Method="KhachHangSelectById1">
+    <Parameter Name="MaKH" Parameter="maKH" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="KhachHangSelectByIdResult1">
+      <Column Name="MaKH" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="TenKH" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="MaloaiKH" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Ngaydangky" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="LinhvucKD" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="MaNDD" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="SoTK" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Sodu" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="LoaiTien" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaSoThue" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Website" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.DGDelete" Method="DGDelete">
+    <Parameter Name="Original_MaDG" Parameter="original_MaDG" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DGUpdate" Method="DGUpdate">
+    <Parameter Name="MaDG" Parameter="maDG" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="MaKH" Parameter="maKH" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="MaDV" Parameter="maDV" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Ngaydanhgia" Parameter="ngaydanhgia" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Danhgia" Parameter="danhgia" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="Tinhtrangxuly" Parameter="tinhtrangxuly" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="Original_MaDG" Parameter="original_MaDG" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="DGUpdateResult">
+      <Column Name="MaDG" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="MaKH" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Ngaydanhgia" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Danhgia" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Tinhtrangxuly" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.DGInsert" Method="DGInsert">
+    <Parameter Name="MaDG" Parameter="maDG" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="MaKH" Parameter="maKH" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="MaDV" Parameter="maDV" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Ngaydanhgia" Parameter="ngaydanhgia" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Danhgia" Parameter="danhgia" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="Tinhtrangxuly" Parameter="tinhtrangxuly" Type="System.String" DbType="NVarChar(300)" />
+    <ElementType Name="DGInsertResult">
+      <Column Name="MaDG" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="MaKH" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Ngaydanhgia" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Danhgia" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Tinhtrangxuly" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.DGSelect" Method="DGSelect">
+    <ElementType Name="DGSelectResult">
+      <Column Name="MaDG" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="MaKH" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Ngaydanhgia" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Danhgia" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Tinhtrangxuly" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.NVDelete" Method="NVDelete">
+    <Parameter Name="Original_MaNV" Parameter="original_MaNV" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.NVUpdate" Method="NVUpdate">
+    <Parameter Name="MaNV" Parameter="maNV" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Hoten" Parameter="hoten" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="SDT" Parameter="sDT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="DiaChi" Parameter="diaChi" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="ChucVu" Parameter="chucVu" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="Original_MaNV" Parameter="original_MaNV" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="NVUpdateResult">
+      <Column Name="MaNV" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Hoten" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="ChucVu" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.NVInsert" Method="NVInsert">
+    <Parameter Name="MaNV" Parameter="maNV" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Hoten" Parameter="hoten" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="SDT" Parameter="sDT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="DiaChi" Parameter="diaChi" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="ChucVu" Parameter="chucVu" Type="System.String" DbType="NVarChar(300)" />
+    <ElementType Name="NVInsertResult">
+      <Column Name="MaNV" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Hoten" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="ChucVu" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.NVSelect" Method="NVSelect">
+    <ElementType Name="NVSelectResult">
+      <Column Name="MaNV" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Hoten" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="ChucVu" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.HDDelete" Method="HDDelete">
+    <Parameter Name="Original_MaHD" Parameter="original_MaHD" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.HDUpdate" Method="HDUpdate">
+    <Parameter Name="MaHD" Parameter="maHD" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="MaKH" Parameter="maKH" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="MaDV" Parameter="maDV" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="MaNV" Parameter="maNV" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="NoiDung" Parameter="noiDung" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="PhiDV" Parameter="phiDV" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="NgayKy" Parameter="ngayKy" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Original_MaHD" Parameter="original_MaHD" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="HDUpdateResult">
+      <Column Name="MaHD" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="MaKH" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaNV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PhiDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="NgayKy" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.HDInsert" Method="HDInsert">
+    <Parameter Name="MaHD" Parameter="maHD" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="MaKH" Parameter="maKH" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="MaDV" Parameter="maDV" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="MaNV" Parameter="maNV" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="NoiDung" Parameter="noiDung" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="PhiDV" Parameter="phiDV" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="NgayKy" Parameter="ngayKy" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="HDInsertResult">
+      <Column Name="MaHD" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="MaKH" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaNV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PhiDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="NgayKy" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.HDSelect" Method="HDSelect">
+    <ElementType Name="HDSelectResult">
+      <Column Name="MaHD" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="MaKH" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaNV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PhiDV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="NgayKy" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.KhachHangMoi" Method="KhachHangMoi">
+    <ElementType Name="KhachHangMoiResult">
+      <Column Name="MaKH" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="TenKH" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="MaloaiKH" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Ngaydangky" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="LinhvucKD" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="MaNDD" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="SoTK" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Sodu" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="LoaiTien" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaSoThue" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Website" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.DanhGia_baocao" Method="DanhGia_baocao">
+    <ElementType Name="DanhGia_baocaoResult">
+      <Column Name="makh" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="TenKH" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="MaNDD" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="madv" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="danhgia" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ngaydanhgia" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="tinhtrangxuly" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.KhachHang_loaiKH_thang" Method="KhachHang_loaiKH_thang">
+    <Parameter Name="maloaikh" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="thang" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nam" Type="System.Int32" DbType="Int" />
+    <ElementType Name="KhachHang_loaiKH_thangResult">
+      <Column Name="MaKH" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="TenKH" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="MaloaiKH" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Ngaydangky" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="LinhvucKD" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="MaNDD" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="SoTK" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Sodu" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="LoaiTien" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaSoThue" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Website" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.DanhGia_thang" Method="DanhGia_thang">
+    <Parameter Name="thang" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nam" Type="System.Int32" DbType="Int" />
+    <ElementType Name="DanhGia_thangResult">
+      <Column Name="makh" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="TenKH" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="MaNDD" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="madv" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="danhgia" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ngaydanhgia" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="tinhtrangxuly" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

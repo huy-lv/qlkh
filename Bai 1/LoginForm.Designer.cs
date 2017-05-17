@@ -34,6 +34,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbMatKhau = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.btThoatApp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -91,11 +92,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btThoatApp
+            // 
+            this.btThoatApp.Location = new System.Drawing.Point(106, 211);
+            this.btThoatApp.Name = "btThoatApp";
+            this.btThoatApp.Size = new System.Drawing.Size(75, 23);
+            this.btThoatApp.TabIndex = 6;
+            this.btThoatApp.Text = "Thoát";
+            this.btThoatApp.UseVisualStyleBackColor = true;
+            this.btThoatApp.Click += new System.EventHandler(this.btThoatApp_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 225);
+            this.ClientSize = new System.Drawing.Size(284, 244);
+            this.Controls.Add(this.btThoatApp);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tbMatKhau);
             this.Controls.Add(this.label3);
@@ -117,5 +129,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbMatKhau;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btThoatApp;
     }
 }

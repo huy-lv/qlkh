@@ -1,0 +1,14 @@
+D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\CustomerManager\bin\Debug\CustomerManager.exe.config
+D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\CustomerManager\bin\Debug\CustomerManager.exe
+D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\CustomerManager\bin\Debug\CustomerManager.pdb
+D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\CustomerManager\obj\Debug\CustomerManager.csprojResolveAssemblyReference.cache
+D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\CustomerManager\obj\Debug\MainWindow.g.cs
+D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\CustomerManager\obj\Debug\App.g.cs
+D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\CustomerManager\obj\Debug\CustomerManager_MarkupCompile.cache
+D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\CustomerManager\obj\Debug\CustomerManager_MarkupCompile.lref
+D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\CustomerManager\obj\Debug\MainWindow.baml
+D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\CustomerManager\obj\Debug\CustomerManager.g.resources
+D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\CustomerManager\obj\Debug\CustomerManager.Properties.Resources.resources
+D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\CustomerManager\obj\Debug\CustomerManager.csproj.GenerateResource.Cache
+D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\CustomerManager\obj\Debug\CustomerManager.exe
+D:\Picture\OneDrive\TAI LIEU\2016\btl-nguyetmoon\qlkh\CustomerManager\obj\Debug\CustomerManager.pdb
