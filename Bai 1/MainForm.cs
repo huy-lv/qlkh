@@ -831,6 +831,45 @@ namespace QlkhNamespace
         {
             Console.WriteLine("leave " + kh_tb4.Value);
         }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Console.WriteLine("c1cccccccc" + tabControl1.SelectedIndex);
+            if(tabControl1.SelectedIndex == 4)
+            {
+                //update report
+
+                //printDanhSachKhachHang();
+
+                deleteRow(tlpKhachHang);
+                printDanhSachKhachHang();
+                deleteRow(tlpDanhGia);
+                printDanhGia();
+            }
+        }
+
+        void deleteRow(TableLayoutPanel tableLayoutPanel)
+        {
+            tableLayoutPanel.SuspendLayout();
+
+            while (tableLayoutPanel.RowCount > 1)
+            {
+                int row = tableLayoutPanel.RowCount - 1;
+                for (int i = 0; i < tableLayoutPanel.ColumnCount; i++)
+                {
+                    Control c = tableLayoutPanel.GetControlFromPosition(i, row);
+                    tableLayoutPanel.Controls.Remove(c);
+                    c.Dispose();
+                }
+
+                tableLayoutPanel.RowStyles.RemoveAt(row);
+                tableLayoutPanel.RowCount--;
+                tableLayoutPanel.Height -= 50;
+            }
+
+            tableLayoutPanel.ResumeLayout(false);
+            tableLayoutPanel.PerformLayout();
+        }
     }
 
 }

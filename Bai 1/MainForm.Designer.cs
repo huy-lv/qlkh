@@ -173,6 +173,12 @@
             this.nv_tb1 = new System.Windows.Forms.TextBox();
             this.label36 = new System.Windows.Forms.Label();
             this.dgvNhanVien = new System.Windows.Forms.DataGridView();
+            this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hoten = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Diachi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Chucvu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label16 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.nvThoat = new System.Windows.Forms.Button();
@@ -196,6 +202,12 @@
             this.dgtb1 = new System.Windows.Forms.TextBox();
             this.label66 = new System.Windows.Forms.Label();
             this.dgvDanhGia = new System.Windows.Forms.DataGridView();
+            this.MaDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaDV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ngaydanhgia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Danhgia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tinhtrangxuly = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label31 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.dgThoat = new System.Windows.Forms.Button();
@@ -263,18 +275,6 @@
             this.label105 = new System.Windows.Forms.Label();
             this.label104 = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hoten = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Diachi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Chucvu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaDV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ngaydanhgia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Danhgia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tinhtrangxuly = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl3.SuspendLayout();
@@ -337,6 +337,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(779, 625);
             this.tabControl1.TabIndex = 11;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -1803,6 +1804,45 @@
             this.dgvNhanVien.TabIndex = 17;
             this.dgvNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellClick);
             // 
+            // MaNV
+            // 
+            this.MaNV.DataPropertyName = "manv";
+            this.MaNV.HeaderText = "Mã NV";
+            this.MaNV.Name = "MaNV";
+            // 
+            // Hoten
+            // 
+            this.Hoten.DataPropertyName = "hoten";
+            this.Hoten.HeaderText = "Họ tên";
+            this.Hoten.Name = "Hoten";
+            this.Hoten.Width = 150;
+            // 
+            // Sdt
+            // 
+            this.Sdt.DataPropertyName = "sdt";
+            this.Sdt.HeaderText = "Số điện thoại";
+            this.Sdt.Name = "Sdt";
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "email";
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            this.Email.Width = 150;
+            // 
+            // Diachi
+            // 
+            this.Diachi.DataPropertyName = "diachi";
+            this.Diachi.HeaderText = "Địa chỉ";
+            this.Diachi.Name = "Diachi";
+            this.Diachi.Width = 150;
+            // 
+            // Chucvu
+            // 
+            this.Chucvu.DataPropertyName = "chucvu";
+            this.Chucvu.HeaderText = "Chức vụ";
+            this.Chucvu.Name = "Chucvu";
+            // 
             // label16
             // 
             this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -2055,6 +2095,43 @@
             this.dgvDanhGia.Size = new System.Drawing.Size(745, 251);
             this.dgvDanhGia.TabIndex = 17;
             this.dgvDanhGia.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhGia_CellClick);
+            // 
+            // MaDG
+            // 
+            this.MaDG.DataPropertyName = "madg";
+            this.MaDG.HeaderText = "Mã DG";
+            this.MaDG.Name = "MaDG";
+            // 
+            // MaKH
+            // 
+            this.MaKH.DataPropertyName = "makh";
+            this.MaKH.HeaderText = "Mã KH";
+            this.MaKH.Name = "MaKH";
+            // 
+            // MaDV
+            // 
+            this.MaDV.DataPropertyName = "madv";
+            this.MaDV.HeaderText = "Mã DV";
+            this.MaDV.Name = "MaDV";
+            // 
+            // Ngaydanhgia
+            // 
+            this.Ngaydanhgia.DataPropertyName = "ngaydanhgia";
+            this.Ngaydanhgia.HeaderText = "Ngày đánh giá";
+            this.Ngaydanhgia.Name = "Ngaydanhgia";
+            // 
+            // Danhgia
+            // 
+            this.Danhgia.DataPropertyName = "danhgia1";
+            this.Danhgia.HeaderText = "Đánh giá";
+            this.Danhgia.Name = "Danhgia";
+            this.Danhgia.Width = 200;
+            // 
+            // Tinhtrangxuly
+            // 
+            this.Tinhtrangxuly.DataPropertyName = "tinhtrangxuly";
+            this.Tinhtrangxuly.HeaderText = "Tình trạng xử lý";
+            this.Tinhtrangxuly.Name = "Tinhtrangxuly";
             // 
             // label31
             // 
@@ -2559,7 +2636,7 @@
             this.tlpKhachHang.Location = new System.Drawing.Point(33, 3);
             this.tlpKhachHang.Name = "tlpKhachHang";
             this.tlpKhachHang.RowCount = 1;
-            this.tlpKhachHang.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
+            this.tlpKhachHang.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.tlpKhachHang.Size = new System.Drawing.Size(673, 38);
             this.tlpKhachHang.TabIndex = 6;
             // 
@@ -2726,7 +2803,7 @@
             this.tlpDanhGia.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.25979F));
             this.tlpDanhGia.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.57295F));
             this.tlpDanhGia.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.57295F));
-            this.tlpDanhGia.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 126F));
+            this.tlpDanhGia.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
             this.tlpDanhGia.Controls.Add(this.label60, 0, 0);
             this.tlpDanhGia.Controls.Add(this.label61, 1, 0);
             this.tlpDanhGia.Controls.Add(this.label62, 2, 0);
@@ -2737,7 +2814,7 @@
             this.tlpDanhGia.Location = new System.Drawing.Point(33, 3);
             this.tlpDanhGia.Name = "tlpDanhGia";
             this.tlpDanhGia.RowCount = 1;
-            this.tlpDanhGia.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.tlpDanhGia.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tlpDanhGia.Size = new System.Drawing.Size(673, 41);
             this.tlpDanhGia.TabIndex = 6;
             // 
@@ -2745,14 +2822,14 @@
             // 
             this.label60.Location = new System.Drawing.Point(4, 1);
             this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(56, 32);
+            this.label60.Size = new System.Drawing.Size(55, 32);
             this.label60.TabIndex = 1;
             this.label60.Text = "Mã KH";
             this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label61
             // 
-            this.label61.Location = new System.Drawing.Point(67, 1);
+            this.label61.Location = new System.Drawing.Point(66, 1);
             this.label61.Name = "label61";
             this.label61.Size = new System.Drawing.Size(92, 39);
             this.label61.TabIndex = 2;
@@ -2761,7 +2838,7 @@
             // 
             // label62
             // 
-            this.label62.Location = new System.Drawing.Point(166, 1);
+            this.label62.Location = new System.Drawing.Point(165, 1);
             this.label62.Name = "label62";
             this.label62.Size = new System.Drawing.Size(67, 39);
             this.label62.TabIndex = 3;
@@ -2770,34 +2847,34 @@
             // 
             // label100
             // 
-            this.label100.Location = new System.Drawing.Point(240, 1);
+            this.label100.Location = new System.Drawing.Point(239, 1);
             this.label100.Name = "label100";
-            this.label100.Size = new System.Drawing.Size(87, 32);
+            this.label100.Size = new System.Drawing.Size(86, 32);
             this.label100.TabIndex = 4;
             this.label100.Text = "Mã dịch vụ";
             this.label100.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label101
             // 
-            this.label101.Location = new System.Drawing.Point(334, 1);
+            this.label101.Location = new System.Drawing.Point(332, 1);
             this.label101.Name = "label101";
-            this.label101.Size = new System.Drawing.Size(99, 32);
+            this.label101.Size = new System.Drawing.Size(98, 32);
             this.label101.TabIndex = 5;
             this.label101.Text = "Đánh giá";
             this.label101.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label102
             // 
-            this.label102.Location = new System.Drawing.Point(440, 1);
+            this.label102.Location = new System.Drawing.Point(437, 1);
             this.label102.Name = "label102";
-            this.label102.Size = new System.Drawing.Size(99, 32);
+            this.label102.Size = new System.Drawing.Size(98, 32);
             this.label102.TabIndex = 6;
             this.label102.Text = "Ngày đánh giá";
             this.label102.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label105
             // 
-            this.label105.Location = new System.Drawing.Point(546, 1);
+            this.label105.Location = new System.Drawing.Point(542, 1);
             this.label105.Name = "label105";
             this.label105.Size = new System.Drawing.Size(103, 32);
             this.label105.TabIndex = 14;
@@ -2824,82 +2901,6 @@
             this.imageList1.Images.SetKeyName(2, "003-payment-method.png");
             this.imageList1.Images.SetKeyName(3, "002-contract.png");
             this.imageList1.Images.SetKeyName(4, "001-tasks.png");
-            // 
-            // MaNV
-            // 
-            this.MaNV.DataPropertyName = "manv";
-            this.MaNV.HeaderText = "Mã NV";
-            this.MaNV.Name = "MaNV";
-            // 
-            // Hoten
-            // 
-            this.Hoten.DataPropertyName = "hoten";
-            this.Hoten.HeaderText = "Họ tên";
-            this.Hoten.Name = "Hoten";
-            this.Hoten.Width = 150;
-            // 
-            // Sdt
-            // 
-            this.Sdt.DataPropertyName = "sdt";
-            this.Sdt.HeaderText = "Số điện thoại";
-            this.Sdt.Name = "Sdt";
-            // 
-            // Email
-            // 
-            this.Email.DataPropertyName = "email";
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            this.Email.Width = 150;
-            // 
-            // Diachi
-            // 
-            this.Diachi.DataPropertyName = "diachi";
-            this.Diachi.HeaderText = "Địa chỉ";
-            this.Diachi.Name = "Diachi";
-            this.Diachi.Width = 150;
-            // 
-            // Chucvu
-            // 
-            this.Chucvu.DataPropertyName = "chucvu";
-            this.Chucvu.HeaderText = "Chức vụ";
-            this.Chucvu.Name = "Chucvu";
-            // 
-            // MaDG
-            // 
-            this.MaDG.DataPropertyName = "madg";
-            this.MaDG.HeaderText = "Mã DG";
-            this.MaDG.Name = "MaDG";
-            // 
-            // MaKH
-            // 
-            this.MaKH.DataPropertyName = "makh";
-            this.MaKH.HeaderText = "Mã KH";
-            this.MaKH.Name = "MaKH";
-            // 
-            // MaDV
-            // 
-            this.MaDV.DataPropertyName = "madv";
-            this.MaDV.HeaderText = "Mã DV";
-            this.MaDV.Name = "MaDV";
-            // 
-            // Ngaydanhgia
-            // 
-            this.Ngaydanhgia.DataPropertyName = "ngaydanhgia";
-            this.Ngaydanhgia.HeaderText = "Ngày đánh giá";
-            this.Ngaydanhgia.Name = "Ngaydanhgia";
-            // 
-            // Danhgia
-            // 
-            this.Danhgia.DataPropertyName = "danhgia1";
-            this.Danhgia.HeaderText = "Đánh giá";
-            this.Danhgia.Name = "Danhgia";
-            this.Danhgia.Width = 200;
-            // 
-            // Tinhtrangxuly
-            // 
-            this.Tinhtrangxuly.DataPropertyName = "tinhtrangxuly";
-            this.Tinhtrangxuly.HeaderText = "Tình trạng xử lý";
-            this.Tinhtrangxuly.Name = "Tinhtrangxuly";
             // 
             // MainForm
             // 
